@@ -2,8 +2,8 @@
     <section class="s-radio-player">
         <div class="content">
             <div class="radio-controls">
-                <div class="control-button play-button"><i class="fas fa-play" @click="startAudioStream"></i></div>
-                <div class="control-button pause-button"><i class="fas fa-stop" @click="stopAudioStream"></i></div>
+                <div class="control-button play-button"><i class="fas fa-play" @click="playAudioStream"></i></div>
+                <div class="control-button pause-button"><i class="fas fa-stop" @click="pauseAudioStream"></i></div>
             </div>
             <div class="radio-info">
                 <h2>Currently playing:</h2>
@@ -76,7 +76,15 @@ export default {
             }
         },
 
-        async stopAudioStream() {
+        async playAudioStream() {
+            const audioEl = this.$el.querySelector("audio");
+            if (audioEl) {
+                audioEl.play();
+                this.isPlaying = true;
+            }
+        },
+
+        async pauseAudioStream() {
             const audioEl = this.$el.querySelector("audio");
             if (audioEl) {
                 audioEl.pause();
@@ -89,6 +97,9 @@ export default {
             this.currentlyPlaying = "-";
             this.startAudioStream();
         },
+    },
+    mounted() {
+        this.startAudioStream();
     },
 }
 </script>
