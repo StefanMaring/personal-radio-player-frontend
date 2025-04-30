@@ -61,7 +61,7 @@ export default {
             const url = song.audioURL;
             let filename = song.file;
 
-            if(url) {
+            if(url && filename) {
                 this.audioUrl = url;
 
                 this.$nextTick(() => {
