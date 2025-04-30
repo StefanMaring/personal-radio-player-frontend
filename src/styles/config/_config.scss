@@ -7,9 +7,9 @@
 }
 
 body, html {
-    font-family: "Quicksand", sans-serif;
+    font-family: $font-family;
     font-weight: 700;
-    background-color: $primary;
+    background-color: $background;
     color: $white;
     overflow: hidden;
 }
