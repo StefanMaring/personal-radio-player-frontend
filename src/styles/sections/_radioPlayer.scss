@@ -1,0 +1,49 @@
+.s-radio-player {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    > .content {
+        background-color: $white;
+        padding: 1rem;
+        border-radius: 10px;
+
+        > .radio-controls {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            > .control-button {
+                display: grid;
+                place-items: center;
+                height: 100px;
+                width: 100px;
+                background-color: $secondary;
+                border-radius: 100%;
+                font-size: 30px;
+                cursor: pointer;
+            }
+        }
+
+        > .radio-info {
+            display: grid;
+            place-items: center;
+            margin: 20px 0 0 0;
+            color: $black;
+
+            > h2 {
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+        }
+
+        > audio {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+}
