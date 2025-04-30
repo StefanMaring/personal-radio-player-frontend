@@ -70,6 +70,7 @@ export default {
                         audioEl.play();
                         this.currentlyPlaying = filename;
                         this.isPlaying = true;
+                        this.sendRecentlyPlayed();
                         return;
                     }
                 });
@@ -96,6 +97,37 @@ export default {
             this.audioUrl = null;
             this.currentlyPlaying = "-";
             this.startAudioStream();
+        },
+
+        async sendRecentlyPlayed() {
+            let currentTime = this.getCurrentTime();
+
+            try {
+                const response = await radioService.sendRecentlyPlayed("/recentlyPlayed", currentTime, this.currentlyPlaying);
+                if (response.ok) {
+                    return;
+                } else {
+                    toastr.error("Failed to send recently played song.", "Error");
+                }
+            } catch (error) {
+                toastr.error("Error sending recently played song:", "Error");
+            }
+        },
+
+        getCurrentTime() {
+            let date = new Date();
+            let hour = date.getHours();
+            let minutes = date.getMinutes();
+            
+            if(hour < 10) {
+                hour = "0" + hour;
+            }
+
+            if(minutes < 10) {
+                minutes = "0" + minutes;
+            }
+
+            return hour + ":" + minutes;
         },
     },
     mounted() {
