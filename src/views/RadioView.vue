@@ -1,7 +1,7 @@
 <template>
   <main class="radio-view">
-    <RadioPlayer />
-    <RecentlyPlayed />
+    <RadioPlayer @song-playing="songPlaying"/>
+    <RecentlyPlayed ref="recentlyPlayed"/>
   </main>
 </template>
 <script>
@@ -13,6 +13,11 @@ export default {
   components: {
     RadioPlayer,
     RecentlyPlayed,
-  }
+  },
+  methods: {
+    async songPlaying() {
+      this.$refs.recentlyPlayed.loadRecentlyPlayed();
+    },
+  },
 }
 </script>

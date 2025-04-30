@@ -71,6 +71,7 @@ export default {
                         this.currentlyPlaying = filename;
                         this.isPlaying = true;
                         this.sendRecentlyPlayed();
+                        this.$emit("song-playing");
                         return;
                     }
                 });
