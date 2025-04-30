@@ -13,3 +13,21 @@ body, html {
     color: $white;
     overflow: hidden;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+
+    @media (max-width:1280px) {
+        display: none;
+    }
+}
+  
+::-webkit-scrollbar-track {
+    background: $secondary;
+    border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: $tertiary;
+    border-radius: 10px;
+}

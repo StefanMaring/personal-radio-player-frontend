@@ -4,7 +4,51 @@
     > .content {
 
         > .recently-played-list {
-            
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 20px;
+            margin-top: 20px;
+            max-height: 550px;
+            overflow-y: scroll;
+
+            > .recently-played-item {
+                background-color: $tertiary;
+                border-radius: 10px;
+                transition: background-color 0.3s ease-in-out;
+                cursor: pointer;
+                width: 50%;
+
+                @media(max-width: 1280px) {
+                    width: 75%;
+                }
+
+                @media(max-width: 480px) {
+                    width: 100%;
+                }
+
+                &:hover {
+                    transition: background-color 0.3s ease-in-out;
+                    background-color: $tertiary-hover;
+                }
+
+                &:nth-of-type(even) {
+                    background-color: $secondary;
+                }
+                &:nth-of-type(even):hover {
+                    background-color: $secondary-hover;
+                }
+
+                > .recently-played-info {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    gap: 10px;
+                    padding: 1rem;
+                    cursor: pointer;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
         }
     }
 }
