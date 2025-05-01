@@ -22,7 +22,7 @@ export const radioService = {
 
     async sendRecentlyPlayed(url, timestamp, filename) {
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}` + url + `?timestamp=${timestamp}&filename=${filename}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}` + url + `?timestamp=${encodeURIComponent(timestamp)}&filename=${encodeURIComponent(filename)}`, {
                 method: 'POST',
                 mode: 'cors',
                 headers: {

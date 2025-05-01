@@ -71,7 +71,6 @@ export default {
                         this.currentlyPlaying = filename;
                         this.isPlaying = true;
                         this.sendRecentlyPlayed();
-                        this.$emit("song-playing");
                         return;
                     }
                 });
@@ -97,6 +96,7 @@ export default {
         async onAudioEnded() {
             this.audioUrl = null;
             this.currentlyPlaying = "-";
+            this.$emit("song-played", );
             this.startAudioStream();
         },
 
