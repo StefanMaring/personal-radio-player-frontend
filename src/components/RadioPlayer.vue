@@ -7,7 +7,7 @@
             </div>
             <div class="radio-info">
                 <h2>Currently playing:</h2>
-                <h3><i>{{ currentlyPlaying }}</i></h3>
+                <h3><i id="currentlyPlaying">{{ currentlyPlaying }}</i></h3>
             </div>
         </div>
         <audio :src=this.audioUrl @ended="onAudioEnded"></audio>
@@ -71,6 +71,7 @@ export default {
                         this.currentlyPlaying = filename;
                         this.isPlaying = true;
                         this.sendRecentlyPlayed();
+                        this.$emit("song-started");
                         return;
                     }
                 });
@@ -96,7 +97,8 @@ export default {
         async onAudioEnded() {
             this.audioUrl = null;
             this.currentlyPlaying = "-";
-            this.$emit("song-played", );
+            this.$emit("song-played");
+            this.$emit("song-started");
             this.startAudioStream();
         },
 

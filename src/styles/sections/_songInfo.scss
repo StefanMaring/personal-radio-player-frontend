@@ -1,0 +1,52 @@
+.s-song-info {
+    padding: 2rem;
+    width: 50%;
+
+    @media (max-width: 750px) {
+        width: 100%;
+    }
+
+    > .content {
+
+        > .song-details {
+            margin-top: 20px;
+
+            > div {
+                display: flex;
+                gap: 10px;
+                justify-content: space-between;
+                padding: 0.5rem 0;
+                background-color: $tertiary;
+                margin-bottom: 0.5rem;
+                border-radius: 5px;
+                cursor: pointer;
+                padding: 1rem;
+
+                &:hover {
+                    transition: background-color 0.3s ease-in-out;
+                    background-color: $tertiary-hover;
+                }
+
+                &:nth-of-type(even) {
+                    background-color: $secondary;
+                    transition: background-color 0.3s ease-in-out;
+                }
+
+                &:nth-of-type(even):hover {
+                    background-color: $secondary-hover;
+                    transition: background-color 0.3s ease-in-out;
+                }
+
+                > span {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    
+                    &::first-letter {
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}
