@@ -6,5 +6,5 @@ This radio player uses my own API for fetching songs. The repository for the API
 
 ### MusicBrainz API Integration
 For the "SongInfo" feature the MusicBrainz API is being utilized. Based on the song title and artist this API will fetch a range of recordings. 
-Then if the song is foudn, the songs info/metadata will be displayed on screen while the song is playing. 
+Then if one of the songs in the range matches, the info/metadata of that particular song will be displayed on screen while the song is playing. 
 Link to the API: [MusicBrainz API](https://musicbrainz.org/doc/MusicBrainz_API).
