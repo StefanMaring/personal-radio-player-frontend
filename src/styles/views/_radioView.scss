@@ -3,4 +3,13 @@
     flex-flow: column nowrap;
     height: 100dvh;
     width: 100%;
+
+    > .bottom {
+        display: flex;
+        flex-flow: row nowrap;
+
+        @media (max-width: 750px) {
+            flex-flow: column nowrap;
+        }
+    }
 }

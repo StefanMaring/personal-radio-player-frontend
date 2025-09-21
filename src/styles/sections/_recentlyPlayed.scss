@@ -1,5 +1,10 @@
 .s-recently-played {
     padding: 2rem;
+    width: 50%;
+
+    @media (max-width: 750px) {
+        width: 100%;
+    }
 
     > .content {
 
@@ -16,13 +21,9 @@
                 border-radius: 10px;
                 transition: background-color 0.3s ease-in-out;
                 cursor: pointer;
-                width: 50%;
+                width: 90%;
 
-                @media(max-width: 1280px) {
-                    width: 75%;
-                }
-
-                @media(max-width: 480px) {
+                @media (max-width: 750px) {
                     width: 100%;
                 }
 
@@ -32,9 +33,12 @@
                 }
 
                 &:nth-of-type(even) {
+                    transition: background-color 0.3s ease-in-out;
                     background-color: $secondary;
                 }
+
                 &:nth-of-type(even):hover {
+                    transition: background-color 0.3s ease-in-out;
                     background-color: $secondary-hover;
                 }
 
