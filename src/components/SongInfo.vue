@@ -34,7 +34,7 @@ export default {
             await new Promise(resolve => setTimeout(resolve, 1000));
 
             let currentSong = document.querySelector("#currentlyPlaying").textContent;
-            let currentSongSplit = currentSong.split("-"); //Returns "Artist - Songtitle"
+            let currentSongSplit = currentSong.split("-"); //Returns "Artist - Song title (Radiohead - Airbag)"
 
             let response = await radioService.getSongInfo(currentSongSplit[1], currentSongSplit[0])
 
