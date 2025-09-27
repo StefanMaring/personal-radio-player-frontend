@@ -13,7 +13,8 @@ export const radioService = {
                 const status = response.status;
                 throw new Error(`Network response was not ok: ${status}`);
             }
-            return await response;
+
+            return response;
         } catch (error) {
             console.error('Error fetching data:', error);
             throw error;
@@ -34,7 +35,8 @@ export const radioService = {
                 const status = response.status;
                 throw new Error(`Network response was not ok: ${status}`);
             }
-            return await response;
+
+            return response;
         } catch (error) {
             console.error('Error sending data:', error);
             throw error;
@@ -55,9 +57,26 @@ export const radioService = {
                 const status = response.status;
                 throw new Error(`Network response was not ok: ${status}`);
             }
-            return await response;
+
+            return response;
         } catch (error) {
             console.error('Error fetching data:', error);
+            throw error;
+        }
+    },
+
+    async getSongInfo(songTitle, songArtist) {
+        try {
+            const response = await fetch(`http://musicbrainz.org/ws/2/recording/?query=recording:${songTitle}&artist:${songArtist}&inc=releases&fmt=json`);
+
+            if (!response.ok) {
+                const status = response.status;
+                throw new Error(`Network response was not ok: ${status}`);
+            }
+
+            return response;
+        } catch (error) {
+            console.error('Error fetching song info data:', error);
             throw error;
         }
     },
