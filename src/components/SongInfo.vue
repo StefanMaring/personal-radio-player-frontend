@@ -13,6 +13,8 @@
     </section>
 </template>
 <script>
+import { radioService } from '@/services/radioService';
+
 export default {
     name: 'SongInfo',
     data() {
@@ -32,9 +34,9 @@ export default {
             await new Promise(resolve => setTimeout(resolve, 1000));
 
             let currentSong = document.querySelector("#currentlyPlaying").textContent;
-            let currentSongSplit = currentSong.split("-");
+            let currentSongSplit = currentSong.split("-"); //Returns "Artist - Songtitle"
 
-            let response = await fetch(`http://musicbrainz.org/ws/2/recording/?query=recording:${currentSongSplit[1].trim()}&artist:${currentSongSplit[0].trim()}&inc=releases&fmt=json`);
+            let response = await radioService.getSongInfo(currentSongSplit[1], currentSongSplit[0])
 
             if (response.ok) {
                 let data = await response.json();
